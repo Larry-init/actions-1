@@ -6,14 +6,39 @@ jobs:
         steps:
         - name: checkout code
           uses: actions/checkout@v4
+
+        - name: welcome message
+          run: echo "Welcome to lagos" > larry.txt
+        
+        - name: Upload artifacts
+          uses: actions/upload-artifact@v4
+          with:
+            name: upload file
+            path: larry.txt
+
+    second_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: checkout code
+          uses: actions/checkout@v4
+        
+        - name: Upload artifacts
+          uses: actions/download-artifact@v4
+          with:
+            name: upload file
+            path: larry.txt
+          
+        - name: rename file
+          run: |
+            mv larry.txt bolux.txt
+            ls -lart
+
+    third_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: checkout code
+          uses: actions/checkout@v4
           
         - name: welcome message
-          run: echo "Welcome to lagos"
-
-        - name: List file
-          run: ls
-        
-        - name: Read readme file
-          run: cat README.md
-        
+          run: echo "This worked just file"
 
