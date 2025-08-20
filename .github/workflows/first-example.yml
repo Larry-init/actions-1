@@ -8,13 +8,15 @@ jobs:
           uses: actions/checkout@v4
 
         - name: welcome message
-          run: echo "Welcome to lagos" > larry.txt
-        
+          run: |
+            echo "Welcome to lagos" > larry.txt
+            cat larry.txt
         - name: Upload artifacts
           uses: actions/upload-artifact@v4
           with:
             name: upload file
             path: larry.txt
+
 
     second_job:
         runs-on: ubuntu-latest
@@ -22,10 +24,10 @@ jobs:
         - name: checkout code
           uses: actions/checkout@v4
         
-        - name: Upload artifacts
+        - name: Donwload artifacts
           uses: actions/download-artifact@v4
           with:
-            name: upload file
+            name: download file
             path: larry.txt
           
         - name: rename file
