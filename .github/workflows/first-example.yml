@@ -32,6 +32,7 @@ jobs:
           run: |
             mv larry.txt bolux.txt
             ls -lart
+            cat bolux.txt
 
     third_job:
         runs-on: ubuntu-latest
