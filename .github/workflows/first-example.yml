@@ -28,7 +28,6 @@ jobs:
           uses: actions/download-artifact@v5
           with:
             name: larry file
-            path: larry.txt
           
         - name: rename file
           run: |
