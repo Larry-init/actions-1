@@ -1,0 +1,12 @@
+name: Show Love
+on: push
+jobs:
+    first_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: checkout
+          run: actions/checkout@v4
+        - name: Hello World
+          run: |
+            echo "Hello World" > text.txt
+          
